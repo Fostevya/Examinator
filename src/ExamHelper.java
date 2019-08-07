@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class ExamHelper {
 
+    // Процедура для воода данных с клавиатуры
     public String getUserInput(String prompt) {
         String inputLine = null;
         System.out.print(prompt + " ");
@@ -18,6 +19,7 @@ public class ExamHelper {
         return inputLine;
     }
 
+    // Генерация случайных ФИО для класса Human
     public void setRandomHumanName(Human human) {
         String[] maleFirstNameList = {"Евгений", "Владимир", "Денис", "Константин", "Егор", "Андрей", "Никита", "Олег",
                 "Александр", "Дмитрий", "Юрий", "Иван", "Аркадий", "Игорь", "Артём", "Григорий", "Георгий", "Владислав",
@@ -58,6 +60,7 @@ public class ExamHelper {
 
     }
 
+    // Процедура для вывода результатов тестирования в файл
     public void examResultsToFile (Exam ex, Human teacher){
         ArrayList<String> resultsToWrite = ex.getExamResults();
         try(FileWriter writer = new FileWriter(ex.getExamDiscipline() + ".txt", false))

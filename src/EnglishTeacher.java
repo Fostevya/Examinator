@@ -3,9 +3,11 @@ public class EnglishTeacher extends Human implements Teacher {
     private String discipline = "Английский язык";
 
     public EnglishTeacher(){
+        //Задаем случайное настроение преподавателю при создании экземпляра класса
         this.setMoodFactor(Math.random());
     }
 
+    // Тестируем студента
     public String testStudent(Student student) {
         System.out.print("Тестируется студент: " + student.getName() + ". ");
         student.setLuckyFactor(Math.random());

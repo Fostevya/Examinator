@@ -15,6 +15,7 @@ public class Exam {
 
     public void start() {
         System.out.println("Экзамен по дисциплине " + examDiscipline + " начался...");
+        // Тестируем каждого студента из ArrayList'а
         for (Student st : this.students) {
             examResults.add(teacher.testStudent(st));
         }
