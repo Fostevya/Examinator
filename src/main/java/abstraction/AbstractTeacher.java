@@ -1,25 +1,30 @@
+package abstraction;
+
+import interfaces.Teacher;
+import trainees.Student;
+
 abstract public class AbstractTeacher extends AbstractHuman implements Teacher {
 
     private short requiredIq;
     private double moodFactor = Math.random();
 
-    protected double getRequiredIq() {
+    private double getRequiredIq() {
         return requiredIq;
     }
 
-    protected void setRequiredIq(short requiredIq) {
+    public void setRequiredIq(short requiredIq) {
         this.requiredIq = requiredIq;
     }
 
-    protected void setRequiredIq(String requiredIq) {
+    public void setRequiredIq(String requiredIq) {
         this.requiredIq = Short.parseShort(requiredIq);
     }
 
-    protected void setMoodFactor(double moodFactor) {
+    public void setMoodFactor(double moodFactor) {
         this.moodFactor = moodFactor;
     }
 
-    protected double getMoodFactor() {
+    private double getMoodFactor() {
         return this.moodFactor;
     }
 

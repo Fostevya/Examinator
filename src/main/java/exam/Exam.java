@@ -1,3 +1,9 @@
+package exam;
+
+import helpers.ExamHelper;
+import interfaces.Teacher;
+import trainees.Student;
+
 import java.util.ArrayList;
 
 public class Exam {

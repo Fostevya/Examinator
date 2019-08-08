@@ -1,17 +1,21 @@
+package trainees;
+
+import abstraction.AbstractHuman;
+
 public class Student extends AbstractHuman {
 
     private double luckyFactor;
     private short iq = 0;
 
-    protected double getIq() {
+    public double getIq() {
         return iq;
     }
 
-    protected void setIq(short iq) {
+    public void setIq(short iq) {
         this.iq = iq;
     }
 
-    protected void setIq(String iq) {
+    public void setIq(String iq) {
         this.iq = Short.parseShort(iq);
     }
 

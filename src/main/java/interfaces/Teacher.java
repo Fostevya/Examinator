@@ -1,3 +1,7 @@
+package interfaces;
+
+import trainees.Student;
+
 public interface Teacher {
 
     // Интерфейс предполагает, что классы которые используют его,

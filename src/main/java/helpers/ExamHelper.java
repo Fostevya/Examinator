@@ -1,3 +1,7 @@
+package helpers;
+
+import exam.Exam;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -20,7 +24,7 @@ public class ExamHelper {
     }
 
     // Процедура для вывода результатов тестирования в файл
-    static void examResultsToFile(Exam exam) {
+    public static void examResultsToFile(Exam exam) {
         String textFileExtension = ".txt";
         ArrayList<String> resultsToWrite = exam.getExamResults();
         try (FileWriter writer = new FileWriter(exam.getExamDiscipline() + textFileExtension, false)) {

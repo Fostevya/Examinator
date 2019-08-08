@@ -1,3 +1,7 @@
+package teachers;
+
+import abstraction.AbstractTeacher;
+
 public class EnglishTeacher extends AbstractTeacher {
 
     public String getDiscipline() {
