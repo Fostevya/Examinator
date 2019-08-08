@@ -5,21 +5,21 @@ public class Exam {
     private ArrayList<Student> students;
     private Teacher teacher;
     private ArrayList<String> examResults = new ArrayList<>();
-    private String examDiscipline;
 
     public Exam(ArrayList<Student> studentsList, Teacher disciplineTeacher) {
         this.students = studentsList;
         this.teacher = disciplineTeacher;
-        this.examDiscipline = teacher.getDiscipline();
     }
 
     public void start() {
-        System.out.println("Экзамен по дисциплине " + examDiscipline + " начался...");
+        System.out.println("Экзамен по дисциплине " + teacher.getDiscipline() + " начался...");
         // Тестируем каждого студента из ArrayList'а
+        teacher.getTeacherInformation();
         for (Student st : this.students) {
             examResults.add(teacher.testStudent(st));
         }
         System.out.println("Экзамен закончен.");
+        ExamHelper.examResultsToFile(this);
     }
 
     public ArrayList<String> getExamResults() {
@@ -27,6 +27,10 @@ public class Exam {
     }
 
     public String getExamDiscipline() {
-        return examDiscipline;
+        return teacher.getDiscipline();
+    }
+
+    public String getExamInfo() {
+        return teacher.getTeacherInformation();
     }
 }
