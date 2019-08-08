@@ -1,4 +1,8 @@
-class NameGenerator {
+package helpers;
+
+import abstraction.AbstractHuman;
+
+public class NameGenerator {
 
     private static String[] maleFirstNameList = {"Евгений", "Владимир", "Денис", "Константин", "Егор", "Андрей", "Никита", "Олег",
             "Александр", "Дмитрий", "Юрий", "Иван", "Аркадий", "Игорь", "Артём", "Григорий", "Георгий", "Владислав",
@@ -22,7 +26,7 @@ class NameGenerator {
             "Проводнова", "Хорнова", "Миннабаева", "Ведрова", "Дмитрова", "Антошина", "Егорова", "Катина"};
 
     // Генерация случайных ФИО для класса AbstractHuman
-    static void setRandomHumanName(AbstractHuman human) {
+    public static void setRandomHumanName(AbstractHuman human) {
         if (Math.random() < 0.5) {
             int rand1 = (int) (Math.random() * maleFirstNameList.length);
             int rand2 = (int) (Math.random() * maleSurNameList.length);

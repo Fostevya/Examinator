@@ -1,3 +1,5 @@
+package abstraction;
+
 public abstract class AbstractHuman {
 
     private String firstName;
@@ -28,7 +30,7 @@ public abstract class AbstractHuman {
         this.lastName = lastName;
     }
 
-    protected String getName() {
+    public String getName() {
         return lastName + " " + firstName + " " + surName;
     }
 

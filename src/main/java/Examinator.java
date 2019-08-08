@@ -1,3 +1,9 @@
+import exam.Exam;
+import teachers.EnglishTeacher;
+import teachers.MathTeacher;
+import helpers.NameGenerator;
+import trainees.Student;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
