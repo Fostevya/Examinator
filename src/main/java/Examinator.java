@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 public class Examinator {
 
@@ -6,69 +8,58 @@ public class Examinator {
         MathTeacher mathTeacher = new MathTeacher();
         EnglishTeacher englishTeacher = new EnglishTeacher();
         ArrayList<Student> studentsGroup = new ArrayList<>();
-        ExamHelper helper = new ExamHelper();
+        Random random = new Random();
 
         //генерация данных о преподавателях
-        /*helper.setRandomHumanName(mathTeacher);
-        helper.setRandomHumanName(englishTeacher);
-        mathTeacher.setIq((short) (70 + ((short) (Math.random() * 130))));
-        englishTeacher.setIq((short) (70 + ((short) (Math.random() * 130))));*/
+        NameGenerator.setRandomHumanName(mathTeacher);
+        NameGenerator.setRandomHumanName(englishTeacher);
+        mathTeacher.setRequiredIq((short) (70 + ((short) (Math.random() * 130))));
+        englishTeacher.setRequiredIq((short) (70 + ((short) (Math.random() * 130))));
 
-        mathTeacher.setMoodFactor(Math.random());
-        englishTeacher.setMoodFactor(Math.random());
-
-        //ручной воод данных о преподавателях
-        mathTeacher.setFirstName(helper.getUserInput(
+        /*//ручной воод данных о преподавателях
+        mathTeacher.setFirstName(ExamHelper.getUserInput(
                 "Введите имя преподавателя по дисциплине " + mathTeacher.getDiscipline() + ": "));
-        mathTeacher.setSurName(helper.getUserInput(
+        mathTeacher.setSurName(ExamHelper.getUserInput(
                 "Введите его отчество: "));
-        mathTeacher.setLastName(helper.getUserInput(
+        mathTeacher.setLastName(ExamHelper.getUserInput(
                 "Введите его фамилию: "));
-        while (mathTeacher.getIq() < 1) {
+        while (mathTeacher.getRequiredIq() < 1) {
             try {
-                mathTeacher.setIq(helper.getUserInput(
+                mathTeacher.setRequiredIq(ExamHelper.getUserInput(
                         "Введите уровень его IQ: "));
             } catch (Exception e) {
                 System.out.println("Попробуйте снова.");
             }
         }
 
-        englishTeacher.setFirstName(helper.getUserInput(
+        englishTeacher.setFirstName(ExamHelper.getUserInput(
                 "Введите имя преподавателя по дисциплине " + englishTeacher.getDiscipline() + ": "));
-        englishTeacher.setSurName(helper.getUserInput(
+        englishTeacher.setSurName(ExamHelper.getUserInput(
                 "Введите его отчество: "));
-        englishTeacher.setLastName(helper.getUserInput(
+        englishTeacher.setLastName(ExamHelper.getUserInput(
                 "Введите его фамилию: "));
-        while (englishTeacher.getIq() < 1) {
+        while (englishTeacher.getRequiredIq() < 1) {
             try {
-                englishTeacher.setIq(helper.getUserInput(
+                englishTeacher.setRequiredIq(ExamHelper.getUserInput(
                         "Введите уровень его IQ: "));
             } catch (Exception e) {
                 System.out.println("Попробуйте снова.");
             }
-        }
+        }*/
 
         //Генерируем имена студентам
-        for (int i = 0; i < ((int) (Math.random() * 50)); i++) {
+        for (int i = 0; i < (10 + random.nextInt(40)); i++) {
             studentsGroup.add(new Student());
-            helper.setRandomHumanName(studentsGroup.get(i));
+            NameGenerator.setRandomHumanName(studentsGroup.get(i));
             studentsGroup.get(i).setLuckyFactor(Math.random());
-            studentsGroup.get(i).setIq((short) (50 + ((short) (Math.random() * 150))));
+            studentsGroup.get(i).setIq((short) (50 + random.nextInt(150)));
         }
 
-        //начинаем экзамен по математике
+        //начинаем экзамены
         Exam mathExam = new Exam(studentsGroup, mathTeacher);
-        System.out.println("Преподаватель: " + mathTeacher.getName() + ", IQ=" + mathTeacher.getIq() + ", настроение - "
-                + (mathTeacher.getMoodFactor() > 0.5 ? "хорошее." : "плохое."));
-        mathExam.start();
-        helper.examResultsToFile(mathExam, mathTeacher);
-
-        //начинаем экзамен по английскому языку
         Exam englishExam = new Exam(studentsGroup, englishTeacher);
-        System.out.println("Преподаватель: " + englishTeacher.getName() + ", IQ=" + englishTeacher.getIq() +
-                ", настроение - " + (englishTeacher.getMoodFactor() > 0.5 ? "хорошее." : "плохое."));
-        englishExam.start();
-        helper.examResultsToFile(englishExam, englishTeacher);
+        ArrayList<Exam> exams = new ArrayList<>(Arrays.asList(mathExam, englishExam));
+        exams.forEach(Exam::start);
 
     }
 
