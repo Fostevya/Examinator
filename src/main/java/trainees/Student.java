@@ -7,7 +7,7 @@ public class Student extends AbstractHuman {
     private double luckyFactor;
     private short iq = 0;
 
-    public double getIq() {
+    public short getIq() {
         return iq;
     }
 

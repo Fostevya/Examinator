@@ -8,7 +8,7 @@ abstract public class AbstractTeacher extends AbstractHuman implements Teacher {
     private short requiredIq;
     private double moodFactor = Math.random();
 
-    private double getRequiredIq() {
+    private short getRequiredIq() {
         return requiredIq;
     }
 
