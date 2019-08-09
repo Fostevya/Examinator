@@ -1,4 +1,4 @@
-package teachers;
+package teacher;
 
 import abstraction.AbstractTeacher;
 

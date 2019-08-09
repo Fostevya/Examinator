@@ -1,8 +1,8 @@
 package exam;
 
-import helpers.ExamHelper;
-import interfaces.Teacher;
-import trainees.Student;
+import utility.ExamHelper;
+import ability.Teacher;
+import trainee.Student;
 
 import java.util.ArrayList;
 
