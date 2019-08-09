@@ -1,4 +1,4 @@
-package helpers;
+package utility;
 
 import abstraction.AbstractHuman;
 
@@ -27,20 +27,15 @@ public class NameGenerator {
 
     // Генерация случайных ФИО для класса AbstractHuman
     public static void setRandomHumanName(AbstractHuman human) {
-        if (Math.random() < 0.5) {
-            int rand1 = (int) (Math.random() * maleFirstNameList.length);
-            int rand2 = (int) (Math.random() * maleSurNameList.length);
-            int rand3 = (int) (Math.random() * maleLastNameList.length);
-            human.setFirstName(maleFirstNameList[rand1]);
-            human.setSurName(maleSurNameList[rand2]);
-            human.setLastName(maleLastNameList[rand3]);
+        boolean gender = (Math.random() < 0.5);
+        if (gender) {
+            human.setFirstName(maleFirstNameList[(int) (Math.random() * maleFirstNameList.length)]);
+            human.setSurName(maleSurNameList[(int) (Math.random() * maleSurNameList.length)]);
+            human.setLastName(maleLastNameList[(int) (Math.random() * maleLastNameList.length)]);
         } else {
-            int rand1 = (int) (Math.random() * femaleFirstNameList.length);
-            int rand2 = (int) (Math.random() * femaleSurNameList.length);
-            int rand3 = (int) (Math.random() * femaleLastNameList.length);
-            human.setFirstName(femaleFirstNameList[rand1]);
-            human.setSurName(femaleSurNameList[rand2]);
-            human.setLastName(femaleLastNameList[rand3]);
+            human.setFirstName(femaleFirstNameList[(int) (Math.random() * femaleFirstNameList.length)]);
+            human.setSurName(femaleSurNameList[(int) (Math.random() * femaleSurNameList.length)]);
+            human.setLastName(femaleLastNameList[(int) (Math.random() * femaleLastNameList.length)]);
         }
 
     }

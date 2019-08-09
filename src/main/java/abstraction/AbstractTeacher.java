@@ -1,7 +1,7 @@
 package abstraction;
 
-import interfaces.Teacher;
-import trainees.Student;
+import ability.Teacher;
+import trainee.Student;
 
 abstract public class AbstractTeacher extends AbstractHuman implements Teacher {
 
@@ -14,14 +14,6 @@ abstract public class AbstractTeacher extends AbstractHuman implements Teacher {
 
     public void setRequiredIq(short requiredIq) {
         this.requiredIq = requiredIq;
-    }
-
-    public void setRequiredIq(String requiredIq) {
-        this.requiredIq = Short.parseShort(requiredIq);
-    }
-
-    public void setMoodFactor(double moodFactor) {
-        this.moodFactor = moodFactor;
     }
 
     private double getMoodFactor() {
@@ -41,7 +33,7 @@ abstract public class AbstractTeacher extends AbstractHuman implements Teacher {
         boolean isTestPassed = ((student.getIq() > this.getRequiredIq()) ||
                 ((student.getIq() / this.getRequiredIq()) > (1 - this.getMoodFactor() * student.getLuckyFactor())));
         System.out.println("Студент " + (isTestPassed ? "сдал" : "не сдал") + " экзамен.");
-        return (student.getName() + " (requiredIq=" + student.getIq() + ") - " + (isTestPassed ? "сдал" : "не сдал"));
+        return (student.getName() + " (IQ=" + student.getIq() + ") - " + (isTestPassed ? "сдал" : "не сдал"));
     }
 
 }

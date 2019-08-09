@@ -1,9 +1,11 @@
-package helpers;
+package utility;
 
 import exam.Exam;
+import trainee.Student;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ExamHelper {
 
@@ -37,6 +39,24 @@ public class ExamHelper {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    // Процедура для генерации данных о студентах
+    public static void setRandomStudentData (Student student) {
+        Random random = new Random();
+        NameGenerator.setRandomHumanName(student);
+        student.setLuckyFactor(Math.random());
+        student.setIq((short) (50 + random.nextInt(150)));
+    }
+
+    // Процедура для генерации группы студентов
+    public static ArrayList<Student> getGroupOfStudents (Short countOfStudents) {
+        ArrayList<Student> groupOfStudents = new ArrayList<>();
+        for (int i = 0; i < countOfStudents; i++) {
+            groupOfStudents.add(new Student());
+            ExamHelper.setRandomStudentData(groupOfStudents.get(i));
+        }
+        return groupOfStudents;
     }
 
 }

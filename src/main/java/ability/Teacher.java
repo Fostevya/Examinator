@@ -1,6 +1,6 @@
-package interfaces;
+package ability;
 
-import trainees.Student;
+import trainee.Student;
 
 public interface Teacher {
 

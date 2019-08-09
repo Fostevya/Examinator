@@ -1,4 +1,4 @@
-package trainees;
+package trainee;
 
 import abstraction.AbstractHuman;
 
@@ -13,10 +13,6 @@ public class Student extends AbstractHuman {
 
     public void setIq(short iq) {
         this.iq = iq;
-    }
-
-    public void setIq(String iq) {
-        this.iq = Short.parseShort(iq);
     }
 
     public double getLuckyFactor() {
