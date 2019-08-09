@@ -20,7 +20,7 @@ public class Examinator {
         mathTeacher.setRequiredIq((short) (70 + ((short) (Math.random() * 130))));
         englishTeacher.setRequiredIq((short) (70 + ((short) (Math.random() * 130))));
 
-        //Генерируем имена студентам
+        //Генерируем группу студентов студентам
         ArrayList<Student> studentsGroup = new ArrayList<>(ExamHelper.getGroupOfStudents((short) (10 + Math.random() * 40)));
 
         //начинаем экзамены
