@@ -2,8 +2,11 @@ package utility;
 
 import abstraction.AbstractHuman;
 
+import java.util.Random;
+
 public class NameGenerator {
 
+    private static Random random = new Random();
     private static String[] maleFirstNameList = {"Евгений", "Владимир", "Денис", "Константин", "Егор", "Андрей", "Никита", "Олег",
             "Александр", "Дмитрий", "Юрий", "Иван", "Аркадий", "Игорь", "Артём", "Григорий", "Георгий", "Владислав",
             "Вячеслав", "Данил", "Сергей", "Радмир", "Ильгиз"};
@@ -29,13 +32,13 @@ public class NameGenerator {
     public static void setRandomHumanName(AbstractHuman human) {
         boolean gender = (Math.random() < 0.5);
         if (gender) {
-            human.setFirstName(maleFirstNameList[(int) (Math.random() * maleFirstNameList.length)]);
-            human.setSurName(maleSurNameList[(int) (Math.random() * maleSurNameList.length)]);
-            human.setLastName(maleLastNameList[(int) (Math.random() * maleLastNameList.length)]);
+            human.setFirstName(maleFirstNameList[random.nextInt(maleFirstNameList.length)]);
+            human.setSurName(maleSurNameList[random.nextInt(maleSurNameList.length)]);
+            human.setLastName(maleLastNameList[random.nextInt(maleLastNameList.length)]);
         } else {
-            human.setFirstName(femaleFirstNameList[(int) (Math.random() * femaleFirstNameList.length)]);
-            human.setSurName(femaleSurNameList[(int) (Math.random() * femaleSurNameList.length)]);
-            human.setLastName(femaleLastNameList[(int) (Math.random() * femaleLastNameList.length)]);
+            human.setFirstName(femaleFirstNameList[random.nextInt(femaleFirstNameList.length)]);
+            human.setSurName(femaleSurNameList[random.nextInt(femaleSurNameList.length)]);
+            human.setLastName(femaleLastNameList[random.nextInt(femaleLastNameList.length)]);
         }
 
     }
