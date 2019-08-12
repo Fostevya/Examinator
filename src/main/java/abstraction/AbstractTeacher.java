@@ -22,18 +22,38 @@ abstract public class AbstractTeacher extends AbstractHuman implements Teacher {
 
     @Override
     public String getTeacherInformation() {
-        return ("Преподаватель: " + this.getName() + ", требуемый для сдачи экзамена IQ=" + this.getRequiredIq()
-                + ", настроение - " + (this.getMoodFactor() > 0.5 ? "хорошее." : "плохое."));
+        StringBuilder teacherInformation = new StringBuilder();
+        teacherInformation.append("Преподаватель: ")
+                .append(this.getName())
+                .append(", требуемый для сдачи экзамена IQ=")
+                .append(this.getRequiredIq())
+                .append(", настроение - ")
+                .append(this.getMoodFactor() > 0.5 ? "хорошее." : "плохое.");
+        return teacherInformation.toString();
     }
 
     // Тестируем студента
     public String testStudent(Student student) {
-        System.out.print("Тестируется студент: " + student.getName() + ". ");
+        StringBuilder message = new StringBuilder();
+        message.append("Тестируется студент: ")
+                .append(student.getName())
+                .append(". ");
+        System.out.print(message.toString());
+        message.delete(0,message.length()-1);
         student.setLuckyFactor(Math.random());
         boolean isTestPassed = ((student.getIq() > this.getRequiredIq()) ||
                 ((double) (student.getIq()) / this.getRequiredIq()) > (1 - this.getMoodFactor() * student.getLuckyFactor()));
-        System.out.println("Студент " + (isTestPassed ? "сдал" : "не сдал") + " экзамен.");
-        return (student.getName() + " (IQ=" + student.getIq() + ") - " + (isTestPassed ? "сдал" : "не сдал"));
+        message.append("Студент ").
+                append(isTestPassed ? "сдал" : "не сдал")
+                .append(" экзамен.");
+        System.out.println(message);
+        message.delete(0,message.length()-1);
+        message.append(student.getName())
+                .append(" (IQ=")
+                .append(student.getIq())
+                .append(") - ").
+                append(isTestPassed ? "сдал" : "не сдал");
+        return (message.toString());
     }
 
 }
