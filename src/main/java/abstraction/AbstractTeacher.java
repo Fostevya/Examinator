@@ -31,7 +31,7 @@ abstract public class AbstractTeacher extends AbstractHuman implements Teacher {
         System.out.print("Тестируется студент: " + student.getName() + ". ");
         student.setLuckyFactor(Math.random());
         boolean isTestPassed = ((student.getIq() > this.getRequiredIq()) ||
-                ((student.getIq() / this.getRequiredIq()) > (1 - this.getMoodFactor() * student.getLuckyFactor())));
+                ((double) (student.getIq()) / this.getRequiredIq()) > (1 - this.getMoodFactor() * student.getLuckyFactor()));
         System.out.println("Студент " + (isTestPassed ? "сдал" : "не сдал") + " экзамен.");
         return (student.getName() + " (IQ=" + student.getIq() + ") - " + (isTestPassed ? "сдал" : "не сдал"));
     }
