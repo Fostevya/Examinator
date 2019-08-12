@@ -9,22 +9,6 @@ import java.util.Random;
 
 public class ExamHelper {
 
-    // Процедура для ввода данных с клавиатуры
-    public static String getUserInput(String prompt) {
-        String inputLine = null;
-        System.out.print(prompt + " ");
-        try {
-            do {
-                BufferedReader is = new BufferedReader(new InputStreamReader(System.in));
-                inputLine = is.readLine();
-                if (inputLine.length() == 0) System.out.println("Попробуйте снова.");
-            } while (inputLine.length() < 2);
-        } catch (IOException e) {
-            System.out.println("IOException: " + e);
-        }
-        return inputLine;
-    }
-
     // Процедура для вывода результатов тестирования в файл
     public static void examResultsToFile(Exam exam) {
         String textFileExtension = ".txt";
